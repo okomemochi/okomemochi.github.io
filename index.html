@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Tasks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Daily Tasks</h1>
+  <p>今日のやることを確認する</p>
+  <div class="card">
+    <h2>Today's date</h2>
+    <p id="todayDate"></p>
+  </div>
+  <div class="card">
+    <h2>Today's Progress</h2>
+    <p>達成率：0%</p>
+    <p>完了したタスク：0件</p>
+  </div>
+  <div class="card">
+    <h2>Add a Task</h2>
+    <label for="taskInput">今日やることを追加しよう</label>
+    <input type="text" id="taskInput">
+    <button type="button" id="addTaskButton">追加する</button>
+  </div>
+  <div class="card">
+    <h2>Task List</h2>
+    <ul id="taskList">
+      <li>
+        <input type="checkbox">
+        起床して10分以内に部屋のカーテンを開ける
+      </li>
+      <li>
+        <input type="checkbox">
+        朝食後、PCからメールやSlackの確認をする
+      </li>
+      <li>
+        <input type="checkbox">
+        献立を確認する
+      </li>
+      <li>
+        <input type="checkbox">
+        家庭学習で使用するプリントを印刷する
+      </li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Memo</h2>
+    <label for="memo">感じたことや困ったことなどを残しておこう</label>
+    <textarea id="memo" rows="5"></textarea>
+    <button type="button">保存する</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
