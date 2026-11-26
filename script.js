@@ -7,6 +7,8 @@ dateElement.textContent = today.toLocaleDateString("ja-JP");
 const taskInput = document.getElementById("taskInput");
 const addTaskButton = document.getElementById("addTaskButton");
 const taskList = document.getElementById("taskList");
+const progressRate = documentl.getElementById("progressRate");
+const completedCount = document.getElementById("completedCount");
 
 //達成率や完了件数を計算する処理
 function updateProgress(){}
