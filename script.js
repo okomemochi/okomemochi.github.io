@@ -9,8 +9,7 @@ const addTaskButton = document.getElementById("addTaskButton");
 const taskList = document.getElementById("taskList");
 
 //達成率や完了件数を計算する処理
-function updateProgress(){
-}
+function updateProgress(){}
 
 // ボタンを押したときの処理
 addTaskButton.addEventListener("click", function() {
