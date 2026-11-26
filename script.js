@@ -11,7 +11,18 @@ const progressRate = documentl.getElementById("progressRate");
 const completedCount = document.getElementById("completedCount");
 
 //達成率や完了件数を計算する処理
-function updateProgress(){}
+function updateProgress(){
+  const checkedTasks = taskList.querySelectorAll("input:checked").length;
+  //達成率の計算
+  let rate = 0;
+  if(totalTasks > 0){
+    rate = Math.round((checkedTasks/totalTasks)*100);
+}
+
+  //HTMLへ結果を表示
+  progressRate.textContent = rate;
+  completedCount.textContent = checkedTasks;
+}
 
 // ボタンを押したときの処理
 addTaskButton.addEventListener("click", function() {
@@ -36,6 +47,8 @@ addTaskButton.addEventListener("click", function() {
     } else {
       li.style.textDecoration = "none";
     }
+
+    updateProgress()
   });
 
   // リスト項目にチェックボックスと文字を追加する
