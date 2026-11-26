@@ -7,11 +7,12 @@ dateElement.textContent = today.toLocaleDateString("ja-JP");
 const taskInput = document.getElementById("taskInput");
 const addTaskButton = document.getElementById("addTaskButton");
 const taskList = document.getElementById("taskList");
-const progressRate = documentl.getElementById("progressRate");
+const progressRate = document.getElementById("progressRate");
 const completedCount = document.getElementById("completedCount");
 
 //達成率や完了件数を計算する処理
 function updateProgress(){
+  const totalTasks = taskList.children.length;
   const checkedTasks = taskList.querySelectorAll("input:checked").length;
   //達成率の計算
   let rate = 0;
@@ -28,6 +29,7 @@ function updateProgress(){
 addTaskButton.addEventListener("click", function() {
   const taskText = taskInput.value;
 
+  updateProgress()
   // 入力欄が空なら処理を終了する
   if (taskText === "") {
     return;
@@ -61,3 +63,5 @@ addTaskButton.addEventListener("click", function() {
   // 入力欄を空にする
   taskInput.value = "";
 });
+
+updateProgress()
