@@ -25,11 +25,26 @@ function updateProgress(){
   completedCount.textContent = checkedTasks;
 }
 
+  function setupCheckbox(checkbox){
+    checkbox.addEventListener("change", function(){
+      const li = checkbox.parenetElement;
+      if(checkbox.chrked){
+        li.style.textDecoration = "none";
+      }
+      
+  updateProgress();
+    });
+  }
+
+  const checkboxes = taskList.querySelectorAll("input[type='checkbox']");
+  checkboxes.forEach(function(checkbox){
+    setupCheckbox(checkbox);
+  });
+
 // ボタンを押したときの処理
 addTaskButton.addEventListener("click", function() {
   const taskText = taskInput.value;
 
-  updateProgress()
   // 入力欄が空なら処理を終了する
   if (taskText === "") {
     return;
@@ -42,16 +57,7 @@ addTaskButton.addEventListener("click", function() {
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
 
-  // チェックしたときの処理
-  checkbox.addEventListener("change", function() {
-    if (checkbox.checked) {
-      li.style.textDecoration = "line-through";
-    } else {
-      li.style.textDecoration = "none";
-    }
-
-    updateProgress()
-  });
+ setupCheckbox(checkbox);
 
   // リスト項目にチェックボックスと文字を追加する
   li.appendChild(checkbox);
@@ -62,6 +68,8 @@ addTaskButton.addEventListener("click", function() {
 
   // 入力欄を空にする
   taskInput.value = "";
+
+  updateProgress();
 });
 
 updateProgress()
